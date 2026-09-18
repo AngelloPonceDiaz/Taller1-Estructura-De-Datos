@@ -31,4 +31,26 @@ using namespace std;
         historialAtenciones.mostrarHistorial();
     }
 
-    
+    void Hospital::atenderSiguientePaciente(int cantidad){
+        for(int i = 0 ; i < cantidad ; i++){
+
+            Paciente* pacienteActual = salaDeEspera.dequeue();
+            Departamentos* deptoActual = cabezaDepartamentos;
+
+            if(pacienteActual == nullptr){cout << "La lista de espera está vacía!";return;}
+
+            string nombreP = pacienteActual->getNombre();
+            int edadP = pacienteActual->getEdad();
+            string servicioP = pacienteActual->getServicio();
+
+            cout << "Atendiendo a " << nombreP << " de " << edadP << " años, sala de " << servicioP << "\n";
+
+            while(deptoActual != nullptr){
+                if(deptoActual->nombre == pacienteActual->getServicio()){
+                    deptoActual->agregarPaciente(pacienteActual);
+                    break;
+                }
+            }
+        }
+        cout << "\nProceso de atencion finalizado.\n";
+    }

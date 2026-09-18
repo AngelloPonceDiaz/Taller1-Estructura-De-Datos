@@ -18,7 +18,7 @@ public:
     Hospital();
     
     void agregarDepartamento(std::string nombre);
-    void atenderSiguientePaciente(); 
+    void atenderSiguientePaciente(int cantidad); 
     void mostrarTodosLosDepartamentos() const;
     void mostrarHistorial() const;
     
