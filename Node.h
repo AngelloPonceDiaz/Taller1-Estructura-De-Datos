@@ -7,10 +7,10 @@
 using namespace std;
 
 class Node{
-    private:
-        Paciente* paciente;
-        Node* next;
     public:
+        Node* next;
+        Paciente* paciente;
+
         Node(Paciente* paciente);
         ~Node();
 };
