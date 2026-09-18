@@ -27,5 +27,8 @@ using namespace std;
     }
 
     void Hospital::mostrarHistorial() const{
-
+        cout << "====== HISTORIAL DEL PAPU-HOSPITAL =======";
+        historialAtenciones.mostrarHistorial();
     }
+
+    
