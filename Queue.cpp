@@ -1,5 +1,6 @@
 #include "Queue.h"
 #include <stdexcept>
+#include <iostream>
 
 Queue::Queue() {
     front = nullptr;
@@ -36,4 +37,22 @@ Paciente* Queue::dequeue(){
 
 bool Queue::isEmpty() const{
     return front == nullptr;
+}
+
+void Queue::mostrarPacientes() const{
+    if(front == nullptr){
+        cout << "La lista de pacientes está vacía!";
+        return;
+    }
+    cout << "=== PACIENTES EN ESPERA ===";
+    Node* actual = front;
+
+    int i = 1;
+    while(actual != nullptr){
+
+        cout << i << ". " << actual->paciente->getId() << " - " << actual->paciente->getNombre() << "\n";
+        actual = actual->next;
+        i++;
+    }
+
 }

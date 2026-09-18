@@ -15,6 +15,7 @@ public:
     void enqueue(Paciente* paciente);
     Paciente* dequeue();
     bool isEmpty() const;
+    void mostrarPacientes() const;
 
 };
 #endif
