@@ -21,7 +21,7 @@ public:
     void atenderSiguientePaciente(int cantidad); 
     void mostrarTodosLosDepartamentos() const;
     void mostrarHistorial() const;
-    
+    void mostrarSalaDeEspera() const;
     ~Hospital();
 };
 

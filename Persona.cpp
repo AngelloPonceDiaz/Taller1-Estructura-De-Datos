@@ -1,6 +1,4 @@
-#ifndef PERSONA_H
-#define PERSONA_H
-
+#include "Persona.h"
 #include <string>
 using namespace std;
 
@@ -22,4 +20,3 @@ class Persona{
 
     virtual ~Persona() {}
 };
-#endif

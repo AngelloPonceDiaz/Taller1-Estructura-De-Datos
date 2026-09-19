@@ -24,7 +24,7 @@ void Departamentos::mostrarPacientes() const {
     Node* actual = cabezaPaciente;
     Node* aux = cabezaPaciente;
 
-    while(aux != nullptr){cantPaciente++;}
+    while(aux != nullptr){cantPaciente++; aux = aux->next;}
 
     cout << " ===== Pacientes en " << nombre << ": "<< cantPaciente << " ===== ";
     while(actual != nullptr){

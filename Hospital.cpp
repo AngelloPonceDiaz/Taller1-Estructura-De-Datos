@@ -50,7 +50,13 @@ using namespace std;
                     deptoActual->agregarPaciente(pacienteActual);
                     break;
                 }
-            }
+
+                deptoActual = deptoActual->next;
+            }historialAtenciones.push(nombreP, edadP, servicioP);
         }
         cout << "\nProceso de atencion finalizado.\n";
+    }
+
+    void Hospital::mostrarSalaDeEspera() const{
+        salaDeEspera.mostrarPacientes();
     }

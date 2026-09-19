@@ -33,6 +33,7 @@ Paciente* Queue::dequeue(){
     }
     actual->paciente = nullptr;
     delete actual;
+    return pacienteOut;
 }
 
 bool Queue::isEmpty() const{
