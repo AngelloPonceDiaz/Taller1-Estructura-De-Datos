@@ -22,6 +22,7 @@ public:
     void mostrarTodosLosDepartamentos() const;
     void mostrarHistorial() const;
     void mostrarSalaDeEspera() const;
+    void cargarPacientes(string nombreArchivo);
     ~Hospital();
 };
 

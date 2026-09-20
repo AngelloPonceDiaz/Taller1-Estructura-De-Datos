@@ -1,5 +1,7 @@
 #include "Hospital.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -19,7 +21,6 @@ using namespace std;
         Departamentos* deptoActual = cabezaDepartamentos;
         int i = 1;
         while(deptoActual != nullptr){
-            cout << i << ") Departamento de " << deptoActual->nombre << endl;
             deptoActual->mostrarPacientes();
             i++;
             deptoActual = deptoActual->next;
@@ -27,7 +28,6 @@ using namespace std;
     }
 
     void Hospital::mostrarHistorial() const{
-        cout << "====== HISTORIAL DEL PAPU-HOSPITAL =======";
         historialAtenciones.mostrarHistorial();
     }
 
@@ -60,3 +60,44 @@ using namespace std;
     void Hospital::mostrarSalaDeEspera() const{
         salaDeEspera.mostrarPacientes();
     }
+
+    void Hospital::cargarPacientes(string nombreArchivo){
+        ifstream archivo(nombreArchivo);
+        if (!archivo.is_open()) {
+        cout << "Error: No se pudo abrir el archivo " << nombreArchivo << "\n";
+        return;
+        }
+
+        string linea;
+        int agregados = 0;
+
+        while (getline(archivo, linea)) {
+        stringstream ss(linea);
+        string id, nombre, servicio, edadStr;
+        int edad;
+
+        getline(ss, id, ';');
+        getline(ss, nombre, ';');
+        getline(ss, edadStr, ';');
+        getline(ss, servicio);
+
+        if (!id.empty() && !edadStr.empty()) {
+            edad = stoi(edadStr); 
+            
+            Paciente* nuevoPaciente = new Paciente(id, nombre, servicio, edad);
+            salaDeEspera.enqueue(nuevoPaciente);
+            
+            agregados++;
+            }
+        }
+    }
+
+    Hospital::~Hospital() {
+    Departamentos* actual = cabezaDepartamentos;
+    
+    while (actual != nullptr) {
+        Departamentos* aBorrar = actual;
+        actual = actual->next;
+        delete aBorrar; 
+    }
+}

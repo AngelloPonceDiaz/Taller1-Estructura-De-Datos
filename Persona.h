@@ -11,11 +11,11 @@ class Persona{
 
     public:
 
-    Persona(string nombre, int edad){}
+    Persona(string nombre, int edad){this->nombre = nombre; this->edad = edad;}
 
-    string getNombre(){}
+    string getNombre(){return nombre;}
 
-    int getEdad(){}
+    int getEdad(){return edad;}
 
     virtual ~Persona() {}
 };

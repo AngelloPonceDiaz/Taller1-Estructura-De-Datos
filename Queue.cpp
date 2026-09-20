@@ -51,7 +51,7 @@ void Queue::mostrarPacientes() const{
     int i = 1;
     while(actual != nullptr){
 
-        cout << i << ". " << actual->paciente->getId() << " - " << actual->paciente->getNombre() << "\n";
+        cout << "\n" << i << ". " << actual->paciente->getId() << " - " << actual->paciente->getNombre();
         actual = actual->next;
         i++;
     }

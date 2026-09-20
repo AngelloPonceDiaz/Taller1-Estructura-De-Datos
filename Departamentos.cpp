@@ -26,11 +26,11 @@ void Departamentos::mostrarPacientes() const {
 
     while(aux != nullptr){cantPaciente++; aux = aux->next;}
 
-    cout << " ===== Pacientes en " << nombre << ": "<< cantPaciente << " ===== ";
+    cout << " \n===== Pacientes en " << nombre << ": "<< cantPaciente << " ===== ";
     while(actual != nullptr){
         Paciente* p = actual->paciente;
 
-        cout << p->getNombre() << " (" << p->getEdad() << ")\n";
+        cout << "\n" << p->getNombre() << " (" << p->getEdad() << ")";
         actual = actual->next;
     }
 }
